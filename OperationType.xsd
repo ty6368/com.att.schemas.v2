@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/OperationType" elementFormDefault="qualified">
+	<xs:simpleType name="operation-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Method" />
+			<xs:enumeration value="Static" />
+			<xs:enumeration value="non-Static" />
+			<xs:enumeration value="Callback" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

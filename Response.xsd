@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Response" elementFormDefault="qualified">
+	<xs:complexType name="response-parameters">
+		<xs:sequence>
+			<xs:element name="response-parameter" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" minOccurs="1" />
+						<xs:element name="required" type="xs:boolean" minOccurs="1" />
+						<xs:element name="description" type="xs:string" minOccurs="1" />
+						<xs:element name="placement" minOccurs="1">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Header" />
+									<xs:enumeration value="QueryString" />
+									<xs:enumeration value="Body" />
+									<xs:enumeration value="Not applicable" /> <!-- callbacks -->
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="response">
+		<xs:sequence>
+			<xs:element name="body" type="xs:string" minOccurs="1" />
+			<xs:element name="response-header" minOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="response-code" type="xs:string" minOccurs="1" />
+						<xs:element name="access-control-allow-origin" type="xs:string" minOccurs="1" />
+						<xs:element name="date" type="xs:string" minOccurs="1" />
+						<xs:element name="content-length" type="xs:string" minOccurs="1" />
+						<xs:element name="via" type="xs:string" minOccurs="1" />
+						<xs:element name="access-control-max-age" type="xs:string" minOccurs="1" />
+						<xs:element name="set-cookie" type="xs:string" minOccurs="1" />
+						<xs:element name="access-control-allow-methods" type="xs:string" minOccurs="1" />
+						<xs:element name="content-type" type="xs:string" minOccurs="1" />
+						<xs:element name="connection" type="xs:string" minOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
