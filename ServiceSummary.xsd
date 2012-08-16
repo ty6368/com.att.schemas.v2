@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/ServiceSummary" xmlns:map="http://developer.att.com/ApplicationProgrammingInterfaceMapping" elementFormDefault="qualified">
+	<xs:import namespace="http://developer.att.com/ApplicationProgrammingInterfaceMapping" schemaLocation="ApplicationProgrammingInterfaceMapping.xsd" />
+	<xs:complexType name="ServiceSummary">
+		<xs:sequence>
+			<xs:element name="service-name" type="xs:string" minOccurs="1" />
+			<xs:element name="overview" type="xs:string" minOccurs="1" />
+			<xs:element name="last_updated" type="xs:dateTime" minOccurs="1" />
+			<xs:element name="last_updated_by" type="xs:string" minOccurs="1" />
+			<xs:element name="api-catalog-mapping" type="map:api-catalog-mapping" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

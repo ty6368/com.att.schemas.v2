@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Verb" elementFormDefault="qualified">
+	<xs:simpleType name="http-verbs">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GET" />
+			<xs:enumeration value="PUT" />
+			<xs:enumeration value="POST" />
+			<xs:enumeration value="DELETE" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

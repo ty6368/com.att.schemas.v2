@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Provider" elementFormDefault="qualified">
+	<xs:simpleType name="provider">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AT&amp;T" />
+			<xs:enumeration value="GSMA OneAPI" />
+			<xs:enumeration value="W3C" />
+			<xs:enumeration value="WAC" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

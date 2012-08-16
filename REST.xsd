@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- 
+                  AT&T License Notice
+ 
+  The contents of this file are subject to the AT&T License
+  (the "License"). You may not use this file except in
+  compliance with the License. A copy of the License is available at
+  http://www.att.com/license/
+ 
+ 
+  Title: Error Documentation Schema
+  Version: 0.5
+  @author Tim Young and Ty Showers
+ 
+  Copyright (c) 2012 AT&T. All Rights Reserved.
+  
+  Revision History
+  __________________________________________________________________
+  0.5 - ts315t - Added legacyNumber element
+  0.6 - ty6368 - Added license notice , initial post to Github
+
+
+ -->
+<xs:schema id="RESTDocumentation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eb="http://developer.att.com/ErrorBrief" xmlns:rsp="http://developer.att.com/Response" xmlns:rqs="http://developer.att.com/Request" xmlns:verbs="http://developer.att.com/Verb" xmlns:ss="http://developer.att.com/ServiceSummary" xmlns:st="http://developer.att.com/State" xmlns:pv="http://developer.att.com/Provider" xmlns:ot="http://developer.att.com/OperationType" xmlns:as="http://developer.att.com/AuthenticationScheme" xmlns:affapi="http://developer.att.com/Methods" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" elementFormDefault="qualified">
+	<xs:import namespace="http://developer.att.com/ErrorBrief" schemaLocation="ErrorBrief.xsd" />
+	<xs:import namespace="http://developer.att.com/Response" schemaLocation="Response.xsd" />:
+	<xs:import namespace="http://developer.att.com/Request" schemaLocation="Request.xsd" />
+	<xs:import namespace="http://developer.att.com/Verb" schemaLocation="Verb.xsd" />
+	<xs:import namespace="http://developer.att.com/ServiceSummary" schemaLocation="ServiceSummary.xsd" />
+	<xs:import namespace="http://developer.att.com/Methods" schemaLocation="Method.xsd" />
+	<xs:import namespace="http://developer.att.com/OperationType" schemaLocation="OperationType.xsd" />
+	<xs:import namespace="http://developer.att.com/State" schemaLocation="State.xsd" />
+	<xs:import namespace="http://developer.att.com/Provider" schemaLocation="Provider.xsd" />
+	<xs:import namespace="http://developer.att.com/AuthenticationScheme" schemaLocation="AuthenticationScheme.xsd" />
+	<xs:element name="Service">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="service" type="ss:ServiceSummary" minOccurs="1" />
+				<xs:element name="Operation" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="operation-id" type="xs:int" minOccurs="1" />
+							<xs:element name="resource" type="xs:string" minOccurs="1" />
+							<xs:element name="description" type="xs:string" minOccurs="1" />
+							<xs:element name="operation-type" type="ot:operation-type" minOccurs="1" />
+							<xs:element name="provider" type="pv:provider" minOccurs="1" />
+							<xs:element name="http-verbs" type="verbs:http-verbs" minOccurs="1" maxOccurs="4" />
+							<xs:element name="state" type="st:state" minOccurs="1" />
+							<xs:element name="authenticationScheme" type="as:authenticationScheme" minOccurs="1" />
+							<xs:element name="scope" minOccurs="1">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Not applicable" /> <!-- Used for callbacks -->
+										<xs:enumeration value="SMS" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="server-root" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="path" type="xs:string" minOccurs="1" />
+										<xs:element name="version" type="xs:string" minOccurs="1" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RequestParameters" type="rqs:request-parameters" minOccurs="1" />
+							<xs:element name="Request" type="rqs:request" minOccurs="1" />
+							<xs:element name="ResponseParamenters" type="rsp:response-parameters" minOccurs="1" />
+							<xs:element name="Response" type="rsp:response" minOccurs="1" />
+							<xs:element name="ErrorNumber" type="eb:ErrorBrief" minOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RESTDocumentation" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="Service" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
