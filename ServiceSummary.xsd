@@ -5,6 +5,7 @@
 		<xs:sequence>
 			<xs:element name="service-name" type="xs:string" minOccurs="1" />
 			<xs:element name="overview" type="xs:string" minOccurs="1" />
+                        <xs:element name="considerations" type="xs:string" minOccurs="1" />
 			<xs:element name="last_updated" type="xs:dateTime" minOccurs="1" />
 			<xs:element name="last_updated_by" type="xs:string" minOccurs="1" />
 			<xs:element name="api-catalog-mapping" type="map:api-catalog-mapping" minOccurs="1" />
