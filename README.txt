@@ -2,7 +2,7 @@ This repository contains the Developer Documentation Schema describing the API P
 in terms of two Developer TYPES: 
 	1) REST 
 	2) HTML5 SDK
-
+.
 The top level schema REST.xsd inherits these sub schema:
 Sum     File name
 ------  --------------------------------------------	
